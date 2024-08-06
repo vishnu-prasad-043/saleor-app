@@ -1,0 +1,12 @@
+{
+    "id": "example-app",
+    "version": "1.0.0",
+    "name": "Example App",
+    "about": "This is an example app.",
+    "permissions": [
+      "MANAGE_PRODUCTS",
+      "MANAGE_ORDERS"
+    ],
+    "appUrl": "https://example.com"
+  }
+  
