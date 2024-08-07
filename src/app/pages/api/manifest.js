@@ -9,21 +9,21 @@ export default function handler(req, res) {
         "MANAGE_PRODUCTS",
         "MANAGE_ORDERS"
       ],
-      url: "https://saleor-app-nine.vercel.app",
-      tokenTargetUrl: "https://saleor-app-nine.vercel.app/api/auth",
+      url: "https://8e23-116-68-103-123.ngrok-free.app",
+      tokenTargetUrl: "https://8e23-116-68-103-123.ngrok-free.app/api/auth",
       webhooks: [
         {
           name: "Order Created",
           asyncEvents: ["ORDER_CREATED"],
           query: "subscription { event { ... on OrderCreated { order { id } } } }",
-          targetUrl: "https://saleor-app-nine.vercel.app/api/webhooks/order-created"
+          targetUrl: "https://8e23-116-68-103-123.ngrok-free.app/api/webhooks/order-created"
         }
       ],
       extensions: [
         {
           label: "Dashboard Product Details",
           mount: "PRODUCT_DETAILS",
-          target: "https://saleor-app-nine.vercel.app/dashboard/product-details",
+          target: "https://8e23-116-68-103-123.ngrok-free.app/dashboard/product-details",
           permissions: ["MANAGE_PRODUCTS"]
         }
       ]
