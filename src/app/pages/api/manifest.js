@@ -1,32 +1,30 @@
-export default function Manifest (req, res) {
-    res.setHeader('Access-Control-Allow-Origin', '*');
-    res.setHeader('Content-Type', 'application/json');
-  
+// pages/api/manifest.js
+export default function handler(req, res) {
     res.status(200).json({
-      id: "saleor-external-app",
+      id: "saleor.external.app",
       version: "1.0.0",
-      name: "Saleor External App",
-      about: "An external app for Saleor using Next.js.",
-      dataPrivacyUrl: "https://saleor-app-nine.vercel.app/privacy-policy",
-      homepageUrl: "https://saleor-app-nine.vercel.app",
-      supportUrl: "https://saleor-app-nine.vercel.app/support",
-      permissions: ["MANAGE_PRODUCTS", "MANAGE_ORDERS"],
-      appUrl: "https://saleor-app-nine.vercel.app",
-      configurationUrl: "https://saleor-app-nine.vercel.app/pages",
-      tokenTargetUrl: "https://saleor-app-nine.vercel.app/token",
+      name: "Hello Saleor App",
+      about: "A simple Hello World app for Saleor",
+      permissions: [
+        "MANAGE_PRODUCTS",
+        "MANAGE_ORDERS"
+      ],
+      url: "https://saleor-app-nine.vercel.app",
+      tokenTargetUrl: "https://saleor-app-nine.vercel.app/api/auth",
       webhooks: [
         {
           name: "Order Created",
-          targetUrl: "https://yourapp.com/webhooks/order-created",
-          events: ["ORDER_CREATED"]
+          asyncEvents: ["ORDER_CREATED"],
+          query: "subscription { event { ... on OrderCreated { order { id } } } }",
+          targetUrl: "https://saleor-app-nine.vercel.app/api/webhooks/order-created"
         }
       ],
       extensions: [
         {
-          label: "Product Details",
-          url: "https://saleor-app-nine.vercel.app/pages",
-          mount: "PRODUCT_OVERVIEW",
-          target: "APP_PAGE"
+          label: "Dashboard Product Details",
+          mount: "PRODUCT_DETAILS",
+          target: "https://saleor-app-nine.vercel.app/dashboard/product-details",
+          permissions: ["MANAGE_PRODUCTS"]
         }
       ]
     });
