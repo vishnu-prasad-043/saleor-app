@@ -1,0 +1,18 @@
+{
+  "id": "saleor-hello-world",
+  "name": "Saleor Hello World App",
+  "about": "A simple Hello World app for Saleor",
+  "dataPrivacy": "https://example.com/data-privacy",
+  "homepageUrl": "https://saleor-app-nine.vercel.app/",
+  "supportUrl": "https://saleor-app-nine.vercel.app/support",
+  "permissions": ["MANAGE_PRODUCTS", "MANAGE_ORDERS"],
+  "extensions": [
+    {
+      "label": "Hello World",
+      "mount": "NAVIGATION_ORDERS",
+      "target": "APP_PAGE",
+      "url": "/hello-world"
+    }
+  ],
+  "version": "1.0.0"
+}
