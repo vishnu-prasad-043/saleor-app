@@ -9,10 +9,11 @@
     "MANAGE_ORDERS"
   ],
   "appUrl": "https://saleor-app-nine.vercel.app",
+  "configurationUrl": "https://saleor-app-nine.vercel.app/pages",
   "webhooks": [
     {
       "name": "Order Created",
-      "targetUrl": "https://yourapp.com/webhooks/order-created",
+      "targetUrl": "https://saleor-app-nine.vercel.app",
       "events": ["ORDER_CREATED"]
     }
   ],
